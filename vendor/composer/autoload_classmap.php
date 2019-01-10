@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Authenticacion\\Auth' => $baseDir . '/Controller/Auth/autentication.php',
+    'App\\Controllers\\UserController' => $baseDir . '/Controller/UserController.php',
     'App\\Core\\Connection' => $baseDir . '/Core/connection.php',
     'Cake\\Cache\\Cache' => $vendorDir . '/cakephp/cache/Cache.php',
     'Cake\\Cache\\CacheEngine' => $vendorDir . '/cakephp/cache/CacheEngine.php',

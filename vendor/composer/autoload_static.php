@@ -111,6 +111,7 @@ class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
 
     public static $classMap = array (
         'App\\Authenticacion\\Auth' => __DIR__ . '/../..' . '/Controller/Auth/autentication.php',
+        'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/Controller/UserController.php',
         'App\\Core\\Connection' => __DIR__ . '/../..' . '/Core/connection.php',
         'Cake\\Cache\\Cache' => __DIR__ . '/..' . '/cakephp/cache/Cache.php',
         'Cake\\Cache\\CacheEngine' => __DIR__ . '/..' . '/cakephp/cache/CacheEngine.php',
