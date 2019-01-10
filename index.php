@@ -1,4 +1,4 @@
 <?php 
 require 'Core/bootstrap.php';
 
-Connection::make();
+\App\Core\Connection::make();

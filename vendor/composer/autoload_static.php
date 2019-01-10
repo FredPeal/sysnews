@@ -110,6 +110,8 @@ class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
     );
 
     public static $classMap = array (
+        'App\\Authenticacion\\Auth' => __DIR__ . '/../..' . '/Controller/Auth/autentication.php',
+        'App\\Core\\Connection' => __DIR__ . '/../..' . '/Core/connection.php',
         'Cake\\Cache\\Cache' => __DIR__ . '/..' . '/cakephp/cache/Cache.php',
         'Cake\\Cache\\CacheEngine' => __DIR__ . '/..' . '/cakephp/cache/CacheEngine.php',
         'Cake\\Cache\\CacheEngineInterface' => __DIR__ . '/..' . '/cakephp/cache/CacheEngineInterface.php',
@@ -302,7 +304,6 @@ class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
         'ComposerAutoloaderInit2d350bdd5d38fded0da67d2148059fb6' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6' => __DIR__ . '/..' . '/composer/autoload_static.php',
-        'Connection' => __DIR__ . '/../..' . '/Core/connection.php',
         'Phinx\\Config\\Config' => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx/Config/Config.php',
         'Phinx\\Config\\ConfigInterface' => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx/Config/ConfigInterface.php',
         'Phinx\\Config\\NamespaceAwareInterface' => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx/Config/NamespaceAwareInterface.php',

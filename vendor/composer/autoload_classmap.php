@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Authenticacion\\Auth' => $baseDir . '/Controller/Auth/autentication.php',
+    'App\\Core\\Connection' => $baseDir . '/Core/connection.php',
     'Cake\\Cache\\Cache' => $vendorDir . '/cakephp/cache/Cache.php',
     'Cake\\Cache\\CacheEngine' => $vendorDir . '/cakephp/cache/CacheEngine.php',
     'Cake\\Cache\\CacheEngineInterface' => $vendorDir . '/cakephp/cache/CacheEngineInterface.php',
@@ -198,7 +200,6 @@ return array(
     'ComposerAutoloaderInit2d350bdd5d38fded0da67d2148059fb6' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6' => $vendorDir . '/composer/autoload_static.php',
-    'Connection' => $baseDir . '/Core/connection.php',
     'Phinx\\Config\\Config' => $vendorDir . '/robmorgan/phinx/src/Phinx/Config/Config.php',
     'Phinx\\Config\\ConfigInterface' => $vendorDir . '/robmorgan/phinx/src/Phinx/Config/ConfigInterface.php',
     'Phinx\\Config\\NamespaceAwareInterface' => $vendorDir . '/robmorgan/phinx/src/Phinx/Config/NamespaceAwareInterface.php',
