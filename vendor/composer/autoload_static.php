@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
+class ComposerStaticInitf7f1db50ade56eee8f70a2ff86a8be7d
 {
     public static $files = array (
         '72142d7b40a3a0b14e91825290b5ad82' => __DIR__ . '/..' . '/cakephp/core/functions.php',
@@ -12,6 +12,8 @@ class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '028fdea3165c4ba1ecccc83b7fec69fc' => __DIR__ . '/..' . '/cakephp/collection/functions.php',
         '948ad5488880985ff1c06721a4e447fe' => __DIR__ . '/..' . '/cakephp/utility/bootstrap.php',
+        'abb79d67d601e4f0ba3d371a775fb57f' => __DIR__ . '/../..' . '/public/index.php',
+        'a65d8a1f67bccf6c27c665c95d62b7e4' => __DIR__ . '/../..' . '/Core/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -302,9 +304,9 @@ class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
         'Cake\\Utility\\Security' => __DIR__ . '/..' . '/cakephp/utility/Security.php',
         'Cake\\Utility\\Text' => __DIR__ . '/..' . '/cakephp/utility/Text.php',
         'Cake\\Utility\\Xml' => __DIR__ . '/..' . '/cakephp/utility/Xml.php',
-        'ComposerAutoloaderInit2d350bdd5d38fded0da67d2148059fb6' => __DIR__ . '/..' . '/composer/autoload_real.php',
+        'ComposerAutoloaderInitf7f1db50ade56eee8f70a2ff86a8be7d' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
-        'Composer\\Autoload\\ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6' => __DIR__ . '/..' . '/composer/autoload_static.php',
+        'Composer\\Autoload\\ComposerStaticInitf7f1db50ade56eee8f70a2ff86a8be7d' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Phinx\\Config\\Config' => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx/Config/Config.php',
         'Phinx\\Config\\ConfigInterface' => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx/Config/ConfigInterface.php',
         'Phinx\\Config\\NamespaceAwareInterface' => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx/Config/NamespaceAwareInterface.php',
@@ -582,9 +584,9 @@ class ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2d350bdd5d38fded0da67d2148059fb6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf7f1db50ade56eee8f70a2ff86a8be7d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf7f1db50ade56eee8f70a2ff86a8be7d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf7f1db50ade56eee8f70a2ff86a8be7d::$classMap;
 
         }, null, ClassLoader::class);
     }

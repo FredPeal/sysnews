@@ -11,4 +11,6 @@ return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     '028fdea3165c4ba1ecccc83b7fec69fc' => $vendorDir . '/cakephp/collection/functions.php',
     '948ad5488880985ff1c06721a4e447fe' => $vendorDir . '/cakephp/utility/bootstrap.php',
+    'abb79d67d601e4f0ba3d371a775fb57f' => $baseDir . '/public/index.php',
+    'a65d8a1f67bccf6c27c665c95d62b7e4' => $baseDir . '/Core/bootstrap.php',
 );
