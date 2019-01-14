@@ -5,12 +5,11 @@ class Connection
 {
     public static function make()
     {
-        $config = require 'Core/conf.php';
-       // var_dump($config['database']["host"]);
+        $config = require 'conf.php';
         try {
-            return new \PDO($config['database']['host'].";".$config['database']['name'],$config['database']['user'],$config['database']['pass']);
+            return new \PDO($config['database']['host'].";".$config['database']['name'],$config['database']['user'],$config['database']['pass'],$config["database"]["options"]);
 
-        }catch(Exception $e) {
+        }catch(PDOException $e) {
             echo $e->getMessage();
         }
     }

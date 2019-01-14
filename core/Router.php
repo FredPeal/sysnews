@@ -16,16 +16,24 @@ class Router
 
     public static function post($uri, $controller)
     {
-        self::$routes["POST"][$uri] = $uri;
+        self::$routes["POST"][$uri] = $controller;
     }
+
+    public static function put($uri, $controller)
+    {
+        self::$routes["PUT"][$uri] = $controller;
+    }
+
 
     public function direct($uri, $method)
     {
         
         if(array_key_exists($uri,self::$routes[$method]))
         {
+            //var_dump(...explode("@", self::$routes[$method][$uri]));
+           // var_dump(self::$routes);
             
-             $this->callAction(...explode("@", self::$routes[$method][$uri]));
+            $this->callAction(...explode("@", self::$routes[$method][$uri]));
         }else
         {
             echo 'Ruta no encontrada';

@@ -1,9 +1,14 @@
 <?php
 return [
     "database"=>array(
-        "host"=>"mysql:localhost",
+        "host"=>"mysql:host=172.21.0.13",
         "name"=>"dbname=sysnews",
-        "user"=>"homestead",
-        "pass"=>"secret"
+        "user"=>"root",
+        "pass"=>"XbbzT5ZyoR",
+        "options"=>[
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            'enableParamLogging'=>true,
+
+        ]
     )
     ];
