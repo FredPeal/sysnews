@@ -1,6 +1,7 @@
 {
     "require": {
-        "robmorgan/phinx":"^0.10.6"
+        "robmorgan/phinx":"^0.10.6",
+        "firebase/php-jwt": "^5.0"
     },
     "autoload": {
         "classmap": [
