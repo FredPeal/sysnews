@@ -1,0 +1,35 @@
+paths:
+    migrations: '%%PHINX_CONFIG_DIR%%/migrations'
+    seeds: '%%PHINX_CONFIG_DIR%%/seeds'
+
+environments:
+    default_migration_table: phinxlog
+    default_database: development
+    production:
+        adapter: mysql
+        host: 172.21.0.13
+        name: sysnews
+        user: root
+        pass: 'XbbzT5ZyoR'
+        port: 3306
+        charset: utf8
+
+    development:
+        adapter: mysql
+        host: 172.21.0.13
+        name: agenda
+        user: root
+        pass: 'sysnews'
+        port: 3306
+        charset: utf8
+
+    testing:
+        adapter: mysql
+        host: localhost
+        name: testing_db
+        user: root
+        pass: ''
+        port: 3306
+        charset: utf8
+
+version_order: creation
