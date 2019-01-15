@@ -17,10 +17,11 @@ class QueryBuilder
 
     }
 
-    public function selectAll($conditions = ['created_at '=>'IS NOT NULL'], $limits=''){
+    public function selectAll($conditions = ['created_at '=>' IS NOT NULL'], $limits=''){
 
         $query= sprintf("SELECT * FROM {$this->table} WHERE %s", implode(' and ', array_keys($conditions)));
         $query = $query . $limits;
+        //print $query;
         $statement = $this->pdo->prepare($query);
         $statement->execute(array_values($conditions));
         $result = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -87,6 +88,22 @@ class QueryBuilder
             echo $e->getMessage();
          }
 
+     }
+
+     public function count()
+     {
+         try
+         {
+            $query = "SELECT COUNT(*) FROM {$this->table}";
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
+            $result = $statement->fetch();
+            return $result[0];
+
+         }catch(PDOException $e)
+         {
+             echo $e->getMessage();
+         }
      }
 
      //public function join($table)

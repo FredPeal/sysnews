@@ -5,6 +5,9 @@ use App\Models\Noticias;
 
 class NoticiasController 
 {
+    private $paginador = 10;
+
+
     public function index()
     {
         $token = $_SERVER["HTTP_X_AUTHORIZATION"];
@@ -13,9 +16,24 @@ class NoticiasController
         {
             if(Auth::Check($token))
             {
-                    $noticias = new Noticias;
+                $noticias = new Noticias;
+                $cantidad_paginas = ceil($noticias->count() / $this->paginador);
+                $condiciones=['1 = ?'=>1];
+                $pagina = $_GET["pagina"];
 
-                    echo json_encode($noticias->selectAll(["titulo=?"=>'MCTEKK', 'created_at=?'=>date('Y/m/d')]));
+                $pagina = $pagina * 10;
+                $limit_anterior = $pagina - 10;
+                
+                foreach($_GET as $key=>$value)
+                {
+                    if($key != '_url' && $key != 'pagina')
+                    {
+                        $condiciones[$key . ' = ?'] = $value;
+                    }
+                }
+
+                //var_dump($condiciones);
+                echo json_encode($noticias->selectAll($condiciones, " limit {$limit_anterior} , {$pagina}"));
             }
 
         }catch(\Firebase\JWT\ExpiredException $e)
@@ -48,7 +66,7 @@ class NoticiasController
                 $noticia->create([
                                                 "iduser"=>$iduser,
                                                 "titulo"=>$_POST["titulo"],
-                                                "contenido"=>$_POST["contenido"],
+                                                "contenido"=>trim($_POST["contenido"],''),
                                                 "created_at"=>date('Y/m/d'),
                                                 "update_at"=>date('Y/m/d'),
                                                 "soft_delete"=>1,
