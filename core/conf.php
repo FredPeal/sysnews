@@ -6,7 +6,8 @@ return [
         "user"=>"root",
         "pass"=>"XbbzT5ZyoR",
         "options"=>[
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE,
+            PDO::ERRMODE_EXCEPTION,
             'enableParamLogging'=>true,
 
         ]

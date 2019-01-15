@@ -8,7 +8,6 @@
             "./"
         ],
         "files": [
-            "public/index.php",
             "Core/bootstrap.php"
         ]
     }

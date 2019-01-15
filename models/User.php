@@ -14,7 +14,6 @@ class User extends QueryBuilder
         $statement = $this->pdo->prepare($query);
         $statement->execute([$name]);
         $result = $statement->fetch();
-        var_dump($result);
         if($result != null)
         {
             if(password_verify($pass,$result['password']))
@@ -27,6 +26,23 @@ class User extends QueryBuilder
         }else
         {
             echo 'Usuario incorrecto';
+        }
+    }
+
+    public function getID($name)
+    {
+        try
+        {
+            $query = "select id from users where name=?";
+            $statement = $this->pdo->prepare($query);
+            $statement->execute([$name]);
+            $result = $statement->fetch();
+            //var_dump($result);
+            return $result["id"];
+
+        }catch(\PDOException $e)
+        {
+            echo $e->getMessage();
         }
     }
 

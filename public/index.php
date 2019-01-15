@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-require __DIR__ . '/../core/bootstrap.php';
-require __DIR__ . '/../routes.php';
+require_once __DIR__ . '/../core/bootstrap.php';
+require_once __DIR__ . '/../routes.php';
 $router = new \App\Core\Router;
 \App\Core\Request::method();
 

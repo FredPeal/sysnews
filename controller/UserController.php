@@ -2,18 +2,22 @@
 
 namespace App\Controllers;
 use App\Models\User;
+use App\Core\Response;
+
 class UserController 
 {
     public function index()
     {
         $user = new User;
-        echo json_encode($user->selectAll());
+        $usuarios = $user->selectAll();
+        echo Response::json($usuarios);
     }
 
     public function show()
     {
         $user = new User;
-        echo json_encode($user->find($_GET["id"]));
+        $usuarios = $user->find($_GET["id"]);
+        echo Response::json($usuarios);
     }
 
     public function store()

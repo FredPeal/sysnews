@@ -1,7 +1,7 @@
 <?php 
 namespace App\Controllers;
 
-use Firebase\JWT\JWT;
+use \Firebase\JWT\JWT;
 use App\Core\Api;
 use App\Models\User;
 class Auth
@@ -16,7 +16,7 @@ class Auth
 
         if($user->auth($_POST["name"],$_POST["pass"]))
         {
-           echo self::SignIn(["user"=>$_POST["name"]]);
+            echo \App\Core\Response::json(self::SignIn(["user"=>$_POST["name"]]));
         }
     }
 
@@ -25,7 +25,7 @@ class Auth
         $time = time();
         
         $token = array(
-            'exp' => 720,
+            'exp' => $time+43200,
             'aud' => self::Aud(),
             'data' => $data
         );
@@ -38,6 +38,7 @@ class Auth
         if(empty($token))
         {
             throw new Exception("Invalid token supplied.");
+            return false;
         }
         
         $decode = JWT::decode(
@@ -48,8 +49,11 @@ class Auth
         
         if($decode->aud !== self::Aud())
         {
+            return false;
             throw new Exception("Invalid user logged in.");
         }
+
+        return true;
     }
     
     public static function GetData($token)

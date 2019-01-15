@@ -7,7 +7,9 @@ class Connection
     {
         $config = require 'conf.php';
         try {
-            return new \PDO($config['database']['host'].";".$config['database']['name'],$config['database']['user'],$config['database']['pass'],$config["database"]["options"]);
+            $db = new \PDO($config['database']['host'].";".$config['database']['name'],$config['database']['user'],$config['database']['pass'],$config["database"]["options"]);
+            $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            return $db;
 
         }catch(PDOException $e) {
             echo $e->getMessage();

@@ -24,6 +24,14 @@ class Router
         self::$routes["PUT"][$uri] = $controller;
     }
 
+    public static function resource($uri, $controller)
+    {
+        self::$routes["GET"][$uri] = $controller . '@' . 'index';
+        self::$routes["POST"][$uri] = $controller . '@' . 'store';
+        self::$routes["GET"][$uri . '/show'] = $controller . '@' . 'show';
+        self::$routes["POST"][$uri . '/update'] = $controller . '@' . 'update';
+        self::$routes["POST"][$uri . '/delete'] = $controller . '@' . 'delete';
+    }
 
     public function direct($uri, $method)
     {

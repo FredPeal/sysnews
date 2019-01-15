@@ -12,18 +12,17 @@ class QueryBuilder
     public function __construct()
     {
         
-        $this->config = require 'conf.php';
+        $this->config = require_once 'conf.php';
         $this->pdo = Connection::make($this->config["database"]);
 
     }
 
-    public function selectAll(){
-        ///try {
+    public function selectAll($conditions = ['created_at '=>'IS NOT NULL'], $limits=''){
 
-        // }
-        $query="SELECT * FROM {$this->table}";
+        $query= sprintf("SELECT * FROM {$this->table} WHERE %s", implode(' and ', array_keys($conditions)));
+        $query = $query . $limits;
         $statement = $this->pdo->prepare($query);
-        $statement->execute();
+        $statement->execute(array_values($conditions));
         $result = $statement->fetchAll(\PDO::FETCH_OBJ);
         return $result;
     }
@@ -37,14 +36,15 @@ class QueryBuilder
             $result = $statement->fetchAll();
             return $result;
         }catch(Exception $e){
-            $e->getMessage();
+            $e->getMessage() ;
         }
 
     }
 
     public function create($array)
     {
-        $query = sprintf("INSERT INTO {$this->table}(%s) VALUES(%s)", implode(', ',array_keys($array)), "'" . implode("', '",$array)."'"); 
+        $query = sprintf("INSERT INTO {$this->table}(%s) VALUES(%s)", implode(', ',array_keys($array)), "'" . implode("', '",$array)."'");
+
         try 
         {
             $statement=$this->pdo->prepare($query);
@@ -78,15 +78,16 @@ class QueryBuilder
      {
          try
          {
-            $query = "DELETE FROM users where id=?";
+            $query = "DELETE FROM {$this->table} where id=?";
             $statement = $this->pdo->prepare($query);
             $statement->execute([$id]);
-
+            print $query;
          }catch(PDOException $e)
          {
             echo $e->getMessage();
          }
 
      }
-    //public function join($table)
+
+     //public function join($table)
 }
